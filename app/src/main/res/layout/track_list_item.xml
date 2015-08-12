@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="?android:listPreferredItemHeight">
+
+    <ImageView
+        android:id="@+id/track_list_item_imageview"
+        android:layout_width="@dimen/image_width"
+        android:layout_height="@dimen/image_height"
+        android:layout_marginLeft="@dimen/list_item_margin_left"
+        android:layout_marginTop="@dimen/list_item_image_margin_top"
+        android:layout_marginBottom="@dimen/list_item_image_margin_bottom"/>
+
+    <TextView
+        android:id="@+id/track_list_item_album_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/track_list_item_imageview"
+        android:layout_marginLeft="@dimen/list_item_margin_left"
+        android:layout_marginTop="@dimen/track_album_title_margin_top"
+        android:textSize="@dimen/track_list_text_size"/>
+
+    <TextView
+        android:id="@+id/track_list_item_track_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/track_list_item_imageview"
+        android:layout_below="@id/track_list_item_album_name"
+        android:layout_marginLeft="@dimen/list_item_margin_left"
+        android:textSize="@dimen/track_list_text_size"/>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:background="@color/holo_gray_light"/>
+
+</RelativeLayout>

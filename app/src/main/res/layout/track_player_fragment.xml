@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/track_player_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/track_artist_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="@dimen/track_album_title_margin_top"/>
+
+    <TextView
+        android:id="@+id/track_album_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_below="@id/track_artist_name"
+        android:layout_centerHorizontal="true"/>
+
+    <ImageView
+        android:id="@+id/track_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/track_album_name"
+        android:layout_margin="@dimen/track_image_margin"
+        android:src="@mipmap/ic_launcher"/>
+
+    <TextView
+        android:id="@+id/track_track_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/track_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="15dp"
+        android:textAlignment="center"/>
+
+    <SeekBar
+        android:id="@+id/track_player_seek_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/track_track_title"
+        android:layout_margin="15dp"/>
+
+    <TextView
+        android:id="@+id/track_start_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/track_player_seek_bar"
+        android:layout_alignLeft="@id/track_player_seek_bar"/>
+
+    <TextView
+        android:id="@+id/track_end_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/track_player_seek_bar"
+        android:layout_alignRight="@id/track_player_seek_bar"/>
+
+    <ImageButton
+        android:id="@+id/track_button_prev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_skip_previous_black_48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/track_button_play"
+        android:layout_marginBottom="20dp"
+        android:contentDescription="@string/skip_previous_button_content_description"/>
+
+    <ImageButton
+        android:id="@+id/track_button_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_play_arrow_black_48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:contentDescription="@string/play_button_content_description"/>
+
+    <ImageButton
+        android:id="@+id/track_button_pause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_pause_black_48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignTop="@id/track_button_play"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:contentDescription="@string/track_pause_button"
+        android:visibility="invisible"/>
+
+    <ImageButton
+        android:id="@+id/track_button_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_skip_next_black_48dp"
+        android:layout_toRightOf="@id/track_button_play"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:contentDescription="@string/skip_next_button_content_description"/>
+
+</RelativeLayout>
