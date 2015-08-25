@@ -17,6 +17,10 @@ public class TrackPreviewService extends Service implements
         MediaPlayer.OnPreparedListener, MediaPlayer.OnErrorListener, MediaPlayer.OnCompletionListener {
     private final String TAG = this.getClass().getSimpleName();
 
+    public MediaPlayer getmMediaPlayer() {
+        return mMediaPlayer;
+    }
+
     private MediaPlayer mMediaPlayer;
     private int mCurrentPosition;
     private String mTrackUrl;

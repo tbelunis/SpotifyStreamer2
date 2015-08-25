@@ -14,13 +14,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class TrackPlayerFragment extends DialogFragment implements View.OnClickListener {
+public class TrackPlayerFragment extends DialogFragment implements View.OnClickListener, SeekBar.OnSeekBarChangeListener {
     private final String TAG = getClass().getSimpleName();
 
     private ArrayList<Top10TracksResult> mTracks;
@@ -113,6 +114,7 @@ public class TrackPlayerFragment extends DialogFragment implements View.OnClickL
         outState.putInt(Constants.TRACK_TO_PLAY, mCurrentPosition);
         outState.putBoolean("PLAYER_BOUND", mIsPlayerBound);
         outState.putBoolean("IS_PLAYING", mIsPlaying);
+        outState.putInt("POSITION", mTrackPreviewService.getmMediaPlayer().getCurrentPosition());
     }
 
     @Override
@@ -123,6 +125,9 @@ public class TrackPlayerFragment extends DialogFragment implements View.OnClickL
             mCurrentPosition = savedInstanceState.getInt(Constants.TRACK_TO_PLAY);
             mIsPlayerBound = savedInstanceState.getBoolean("PLAYER_BOUND");
             mIsPlaying = savedInstanceState.getBoolean("IS_PLAYING");
+            if (mIsPlayerBound) {
+                mTrackPreviewService.getmMediaPlayer().seekTo(savedInstanceState.getInt("POSITION", 0));
+            }
             getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
@@ -198,5 +203,20 @@ public class TrackPlayerFragment extends DialogFragment implements View.OnClickL
                 .into(mTrackImage);
         mPreviousTrack.setEnabled(mCurrentPosition > 0);
         mNextTrack.setEnabled(mCurrentPosition < mTracks.size());
+    }
+
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+        mTrackPreviewService.getmMediaPlayer().seekTo(progress);
+    }
+
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
+
+    }
+
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
+
     }
 }
